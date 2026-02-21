@@ -22,25 +22,125 @@ lst.clear()          # Removes all elements
 lst.sort()           # Sorts list
 lst.reverse()        # Reverses list
 lst.append(lst1.upper()) #to convert the names in the list to uppercase
+
+STRING: 
 s = " python "
+s.upper()        # Converts to UPPERCASE
+s.lower()        # Converts to lowercase
+s.capitalize()  # First letter capital
+s.title()       # First letter of each word capital
+s.swapcase()    # Upper ↔ lower
+len(s)           # Returns length of string
+s.strip()        # Removes spaces from both sides
+s.lstrip()       # Removes left spaces
+s.rstrip()       # Removes right spaces
+s.find("World")      # Returns index (or -1 if not found)
+s.rfind("o")         # Finds from right
+s.index("hello")    # Like find(), but gives ERROR if not found
+s.count("l")        # Counts occurrences
+s.replace("hello", "hi")   # Replaces text
+s.split()           # Splits string into list (by spaces)
+s.split(",")        # Split by comma
 
-s.lower()            # Converts to lowercase
-s.upper()            # Converts to uppercase
-s.strip()            # Removes spaces
-s.split()            # Splits into list
-s.replace("p","P")   # Replaces characters
-s.find("t")          # Finds index
-s.startswith("p")    # Checks start
-s.endswith("n")      # Checks end
+words = ["Hello", "Rana"]
+" ".join(words)     # Joins list into string
+s.isupper()     # All uppercase?
+s.islower()     # All lowercase?
+s.isalpha()     # Only letters?
+s.isdigit()     # Only digits?
+s.isalnum()     # Letters + digits?
+s.isspace()     # Only spaces?
+s.startswith("hello")   # Starts with?
+s.endswith("123")       # Ends with?
+s.center(30)        # Centers text
+s.ljust(30)         # Left align
+s.rjust(30)         # Right align
+s.zfill(5)          # Adds zeros at start
+s.removeprefix("  ")   # Removes prefix
+s.removesuffix("123")  # Removes suffix
+s.encode()         # Converts string to bytes
+name = "Rana"
+age = 18
 
-d = {"a":1, "b":2}
+"My name is {} and age is {}".format(name, age)
+f"My name is {name} and age is {age}"   # BEST way
+s.isnumeric()      # Numbers only
+s.isdecimal()      # Decimal numbers only
+s.isprintable()    # Printable characters?
+s.partition("World")   # Splits into 3 parts
+s.rpartition("o")      # From right
+table = str.maketrans("aeiou", "12345")
+s.translate(table)     # Replaces characters
 
-d.keys()             # Returns keys
-d.values()           # Returns values
-d.items()            # Returns key-value pairs
-d.get("a")           # Safe value access
-d.pop("a")           # Removes key
-d.update({"c":3})    # Adds/updates items
+# Creating dictionary
+d = {
+    "name": "Rana",
+    "age": 18,
+    "branch": "CSE"
+}
+
+# Accessing values
+d["name"]              # Access value using key (error if key missing)
+d.get("age")           # Safe access
+d.get("marks", 0)      # Default value if key not found
+
+# Adding / Updating values
+d["college"] = "KIIT"  # Add new key-value
+d["age"] = 19          # Update existing key
+d.update({"city": "BBSR", "age": 20})  # Add/update multiple values
+
+# Removing elements
+d.pop("age")           # Remove key and return value
+d.popitem()            # Remove last inserted item
+del d["branch"]        # Delete specific key
+d.clear()              # Remove all items
+
+# Length of dictionary
+len(d)                 # Number of key-value pairs
+
+# View methods
+d.keys()               # Returns all keys
+d.values()             # Returns all values
+d.items()              # Returns (key, value) pairs
+
+# Copying dictionary
+d2 = d.copy()          # Shallow copy
+
+# Creating dictionary from keys
+keys = ["a", "b", "c"]
+dict.fromkeys(keys, 0) # {'a':0, 'b':0, 'c':0}
+
+# Checking key existence
+"name" in d            # True if key exists
+"marks" in d           # False if key not exists
+
+# Looping through dictionary
+for key in d:
+    print(key, d[key])
+
+for key, value in d.items():
+    print(key, value)
+
+# Nested dictionary
+student = {
+    "name": "Rana",
+    "marks": {
+        "maths": 85,
+        "physics": 78
+    }
+}
+student["marks"]["maths"]   # Access nested value
+
+# Dictionary comprehension
+squares = {x: x*x for x in range(1, 6)}
+
+# Key rules
+# - Keys must be unique
+# - Keys can be string, int, tuple
+# - Keys CANNOT be list or dict
+
+# Duplicate keys overwrite value
+d3 = {"a": 1, "a": 2}   # {'a': 2}
 
 s = {1,2,3}
 
